@@ -1,4 +1,4 @@
 homepage: "https://www.aoe.com/de/produkte/search-recommendation/searchperience.html"
 versions:
-  - sha: cd3e0e1e2ca26a5bcd755c24ae88c10ca17fcee8
-    changeNotes: Initial Version
+  - sha: c9161bc50e7cdd3c6d3e7750e45eff47fbdd1e76
+    changeNotes: Fix spSession
