@@ -267,7 +267,7 @@ if (typeof (currentMapping) === 'undefined') {
         let completeTrackerUrl = spTrackerUrl + '_?' + trackerRequestsParam;
         log ('Generated request: ' + completeTrackerUrl);
         sendPixel(completeTrackerUrl);
-      }, data.gtmOnSuccess);
+      }, data.gtmOnSuccess());
 
     } else {
       log('No trackerUrl');
