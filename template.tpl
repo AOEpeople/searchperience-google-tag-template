@@ -167,6 +167,7 @@ const buildTrackerRequestsParams = function (productData, action) {
   productData.forEach(product => {
     // build searchperience product
     let spProduct = {
+      item: product.id,
       // build the foreign id
       foreignId: product.id + '-' + product.locale + '-' + product.channel,
       // transform brand to brand code, e.g. "JOHNNIE WALKER" > johnnie-walker
