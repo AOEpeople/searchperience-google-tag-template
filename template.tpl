@@ -168,7 +168,7 @@ const buildTrackerRequestsParams = function (productData, action) {
     // build searchperience product
     let spProduct = {
       item: product.id,
-      // build the foreign id
+      // build the foreign id TODO: Here should be the foreign ID of configurable item  
       foreignId: product.id + '-' + product.locale + '-' + product.channel,
       // transform brand to brand code, e.g. "JOHNNIE WALKER" > johnnie-walker
       brandCode: product.brand.toLowerCase().replace(' ', '-'),
@@ -177,10 +177,6 @@ const buildTrackerRequestsParams = function (productData, action) {
       channel: product.channel,
       locale: product.locale
     };
-
-    if (getType(product.variant) !== 'undefined') {
-      spProduct.variantId = product.variant + '-' + product.locale + '-' + product.channel;
-    }
     
     spProducts.push(spProduct);
   });
@@ -205,10 +201,8 @@ const buildTrackerRequestsParams = function (productData, action) {
         trackerObj.categoryCodes = spProduct.categoryCode;
         trackerObj.channel = spProduct.channel;
         trackerObj.locale = spProduct.locale;
-        // add param 'item' to actions like addToCart and purchase
-        if ((action === 'addToCart' || action === 'purchase') && getType(spProduct.variantId) != 'undefined') {
-          trackerObj.item = spProduct.variantId;
-        }
+	trackerObj.item = spProduct.item;
+       
         return transformObjToUrlParams(trackerObj);
       });
     }
